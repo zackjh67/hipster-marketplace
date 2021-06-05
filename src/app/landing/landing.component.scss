@@ -1,0 +1,13 @@
+.item-grid {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-grid-item {
+  margin: 1.5rem;
+  & > label {font-size: 2rem};
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}

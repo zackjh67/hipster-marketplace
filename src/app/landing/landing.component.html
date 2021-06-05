@@ -1,0 +1,10 @@
+<div class="item-grid">
+  <div class="item-grid-item" *ngFor="let item of items; let i = index">
+    <label>{{item.name}}</label>
+    <a [routerLink]="'/item/' + i">
+      <img *ngIf="item.imageUrl" [src]="item.imageUrl" />
+      <div *ngIf="!item.imageUrl">Image not found :(</div>
+    </a>
+  </div>
+</div>
+
