@@ -1,1 +1,3 @@
-<lp>item works!</lp>
+<img alt="{{item?.name}}" *ngIf="item?.imageUrl" [src]="item?.imageUrl"/>
+<div *ngIf="!item?.imageUrl">No image data found :(</div>
+<button (click)="addToCart()">Add to Cart</button>

@@ -62,7 +62,7 @@
 
   .content {
     display: flex;
-    margin: 82px auto 32px;
+    margin: 120px auto 32px;
     padding: 0 16px;
     max-width: 960px;
     flex-direction: column;
@@ -301,18 +301,34 @@
     text-align: center;
     width: 100%;
   }
+
+  .cart-badge {
+    border: 2px solid red;
+    color: white;
+    position: absolute;
+    margin-left: -38px;
+    margin-top: 10px;
+    border-radius: 18px;
+    width: 15px;
+    height: 8px;
+    text-align: center;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 10px;
+    background-color: red;
+  }
 </style>
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <img
-    width="40"
-    alt="Angular Logo"
-    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-  />
+  <a style="color: white; margin-left: 5px" routerLink="/"><i class="fas fa-home fa-2x"></i></a>
 <!--    <div class="spacer"></div>-->
     <h2 class="centered-title">Hipster Marketplace</h2>
   <div class="spacer"></div>
+  <a style="color: white; margin-right: 5px" routerLink="/cart">
+    <i class="fas fa-shopping-cart fa-2x"></i><span class="cart-badge">{{(cartService.getCart() | async).length}}</span>
+  </a>
+
   <div>
     <a href="https://pixabay.com/">
           <img style="width: 100px; height: 80px; margin-top: -15px" src="https://pixabay.com/static/img/public/medium_rectangle_a.png" alt="Pixabay">
