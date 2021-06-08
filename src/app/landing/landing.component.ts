@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {InventoryService} from '../inventory.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-landing',
@@ -10,7 +11,9 @@ export class LandingComponent implements OnInit {
 
   items = [];
 
-  constructor(protected inventoryService: InventoryService) { }
+  constructor(protected inventoryService: InventoryService, titleService: Title) {
+    titleService.setTitle('Hipster Marketplace');
+  }
 
   ngOnInit(): void {
     this.inventoryService.getInventory().subscribe((inventory) => {

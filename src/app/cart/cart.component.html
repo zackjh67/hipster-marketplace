@@ -1,0 +1,5 @@
+<div *ngFor="let item of cartItems">
+  <img alt="{{item?.name}}" *ngIf="item?.imageUrl" [src]="item?.imageUrl"/>
+  <div *ngIf="!item?.imageUrl">No image data found :(</div>
+  <button (click)="removeFromCart(item)">Remove to Cart</button>
+</div>
