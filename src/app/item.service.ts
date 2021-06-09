@@ -19,7 +19,7 @@ export class ItemService {
           // tslint:disable-next-line:triple-equals
           const foundItem = inventory.find((i) => i.id == item.id);
           setTimeout(() => {
-            this.item.next({ id: foundItem.id, name: foundItem.name, imageUrl: foundItem.imageUrl });
+            this.item.next(foundItem);
           });
         }
       }
