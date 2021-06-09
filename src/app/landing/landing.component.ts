@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {InventoryService} from '../inventory.service';
 import {Title} from '@angular/platform-browser';
+import {Utils} from '../Utils';
+
+declare let sandbox: any;
 
 @Component({
   selector: 'app-landing',
@@ -9,7 +12,7 @@ import {Title} from '@angular/platform-browser';
 })
 export class LandingComponent implements OnInit {
 
-  items = [];
+  items: any[] = [];
 
   constructor(protected inventoryService: InventoryService, titleService: Title) {
     titleService.setTitle('Hipster Marketplace');
@@ -17,8 +20,17 @@ export class LandingComponent implements OnInit {
 
   ngOnInit(): void {
     this.inventoryService.getInventory().subscribe((inventory) => {
-      this.items = inventory;
+      if (inventory) {
+        this.items = inventory;
+        sandbox.set_items(Utils.formatItemListForSandbox(this.items));
+      }
     });
+    sandbox.set_filters(
+      [
+        new sandbox.Filter('price', 'lt', 'hipster'),
+        new sandbox.Filter('brand', 'gt', 'hipster')
+      ]
+    );
   }
 
 }
