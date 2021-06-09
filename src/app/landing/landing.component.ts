@@ -31,6 +31,7 @@ export class LandingComponent implements OnInit {
         new sandbox.Filter('brand', 'gt', 'hipster')
       ]
     );
+    sandbox.set_sort_type(['price', 'how_hipster']);
   }
 
 }
